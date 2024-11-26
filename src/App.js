@@ -86,11 +86,11 @@ function App() {
     const yearStart = lessOneMonth.year();
     const yearEnd = today.year();
 
-    // const proxyUrl = "https://thingproxy.freeboard.io/fetch/";
-    const route = `https://precospublicosonline.com.br/api/data-dengue?geocode=${geocode}&disease=dengue&format=json&ew_start=${weekstart}&ew_end=${weekEnd}&ey_start=${yearStart}&ey_end=${yearEnd}`;
+    const proxyUrl = "https://thingproxy.freeboard.io/fetch/";
+    const route = `https://info.dengue.mat.br/api/alertcity?geocode=${geocode}&disease=dengue&format=json&ew_start=${weekstart}&ew_end=${weekEnd}&ey_start=${yearStart}&ey_end=${yearEnd}`;
 
     const dados = await axios
-      .get(route)
+      .get(proxyUrl + route)
       .then((res) => {
         if (res.status === 200) {
           const agrupado = {};
